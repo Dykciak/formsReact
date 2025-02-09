@@ -2,15 +2,14 @@ import React from "react";
 import { useRef } from "react";
 
 export default function FormInput(props) {
+	const { label, onChange, id, ...inputProps } = props;
 	return (
-		<div className="py-2">
-			<label>Username</label>
+		<div className="flex flex-col gap-1">
+			<label className="text-sm font-medium text-black">{label}</label>
 			<input
-				ref={props.ref}
-				name={props.name}
-                type="text"
-				className="border-1 ml-2 p-1 rounded-sm"
-				placeholder={props.placeholder}
+				className="h-12 w-full border border-gray-300 rounded-lg px-4 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+				{...inputProps}
+				onChange={onChange}
 			/>
 		</div>
 	);
